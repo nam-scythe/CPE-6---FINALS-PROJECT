@@ -1,0 +1,143 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<div id="carouselExampleAutoplaying" class="carousel slide luxury-carousel" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 4">
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner_slider %}
+
+{% block information %}
+<div class="container">
+    <div class="row luxury-banner text-center">
+        <h1>Products</h1>
+        <p class="luxury-text fs-5">
+            Welcome to Scent Avenue, your ultimate destination for luxury fragrances. We specialize in both designer and niche perfumes, offering an exquisite selection from iconic brands like YSL, Valentino, Creed, Louis Vuitton, Dior, and Armani. At Scent for Days, we believe that the perfect scent is more than a fragrance—it's an experience that lingers, inspires, and defines your presence. Discover your signature scent with us and indulge in a world of elegance and sophistication.
+        </p>
+    </div>
+</div>
+{% endblock information %}
+
+{% block main_content %}
+<div class="container">
+    <h2 class="text-center luxury-heading">Perfumes</h2>
+
+    <div class="row container">
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume armani">
+                <a href="{% url "category" 'AR' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/ADG_parfum-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Armani</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume aventus">
+                <a href="{% url "category" 'CD' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/creedaventus-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Creed</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume ysl">
+                <a href="{% url "category" 'YSL' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/Ysl_Yedp-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Yves Saint Laurent</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row container mt-4">
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume armani">
+                <a href="{% url "category" 'DR' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/Sauvage_parfum-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Dior</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume aventus">
+                <a href="{% url "category" 'MM' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/MM_BeachWalk-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Maison Margiela</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume ysl">
+                <a href="{% url "category" 'PDM' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/Althair-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Parfumes De Marley</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume valentino">
+                <a href="{% url "category" 'VT' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/Valentino_Cf-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Valentino</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mi-go wow fadeInUp">
+            <div class="perfume lv">
+                <a href="{% url "category" 'LV' %}">
+                    <div class="perfumer text-center">
+                        <img src="{% static 'app/images/product/png/Imagination-removebg-preview.png' %}" class="img-responsive center-block" alt="">
+                        <p class="mlkpro">Louis Vuitton</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
+
+
+

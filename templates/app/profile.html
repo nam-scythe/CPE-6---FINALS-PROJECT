@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Profile{% endblock title %}
+
+{% block main_content %}
+<div class="container profile-container my-5">
+
+    <!-- Welcome Header -->
+    <div class="row mb-4">
+        <h3 class="profile-heading">Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+    </div>
+
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-sm-2 profile-sidebar border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-2"><a href="{% url 'profile' %}" class="btn btn-primary btn-sidebar">Profile</a></li>
+                <li class="d-grid mb-2"><a href="{% url 'address' %}" class="btn btn-secondary btn-sidebar">Address</a></li>
+            </ul>
+        </div>
+
+        <!-- Form Section -->
+        <div class="col-sm-8 offset-sm-1 profile-form-section">
+            <form action="" method="post" class="profile-form">
+                {% csrf_token %}
+                
+                {% for fm in form %}
+                    <div class="form-group mb-3">
+                        {{ fm.label_tag }}
+                        {{ fm }}
+                        <small class="text-danger">{{ fm.errors|striptags }}</small>
+                    </div>
+                {% endfor %}
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+                </div>
+
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger my-3">{{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

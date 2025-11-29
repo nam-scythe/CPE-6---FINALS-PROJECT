@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Category{% endblock title %}
+
+{% block main_content %}
+<div class="container product-container">
+    <div class="row justify-content-between align-items-start">
+
+        <!-- Product Image -->
+        <div class="col-lg-5 product-image-container mt-5">
+            <img src="{{product.product_image.url}}" class="product-image w-100" alt="{{product.title}}">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-lg-5 product-details">
+            <h1 class="product-title">{{product.title}}</h1>
+            <h5 class="product-price">₱{{product.discounted_price}}/-</h5>
+            <small class="product-old-price text-muted"><del>₱{{product.selling_price}}/-</del></small>
+
+            <h4 class="product-features-heading mt-4">Product Features</h4>
+            <ul class="product-features">
+                <li>{{product.description}}</li>
+                <li>Composition: {{product.composition}}</li>
+                <li>Use: {{product.prodapp}}</li>
+            </ul>
+
+            <!-- Actions -->
+            <div class="product-actions mt-4">
+                <form action="/add-to-cart" class="d-inline">
+                    <input type="hidden" name="prod_id" value="{{product.id}}" />
+                    <button type="submit" class="btn btn-primary btn-add-cart">Add to Cart</button>
+                </form>
+                <a href="{% url 'show_cart' %}" class="btn btn-warning btn-buy-now ms-3">Buy Now</a>
+
+                {% if wishlist %}
+                <a pid="{{product.id}}" class="btn btn-danger btn-wishlist ms-3">
+                    <i class="fas fa-heart fa-lg"></i>
+                </a>
+                {% else %}
+                <a pid="{{product.id}}" class="btn btn-success btn-wishlist ms-3">
+                    <i class="far fa-heart fa-lg"></i>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,28 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Wish List{% endblock title %}
+
+{% block main_content %}
+<div class="container my-5 wishlist-container">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row wishlist-items">
+                {% for prod in product %}
+                <div class="col-sm-4 text-center mb-4 wishlist-item">
+                    <a href="{% url 'product-detail' prod.id %}" class="btn wishlist-link">
+                        <div>
+                            <img src="{{ prod.product_image.url }}" alt="{{ prod.title }}" class="wishlist-img" />
+                            <div class="wishlist-title fw-bold">{{ prod.title }}</div>
+                            <div class="wishlist-price fw-bold text-danger">
+                                ₱{{ prod.discounted_price }}/-
+                                <small class="fw-light text-decoration-line-through">₱{{ prod.selling_price }}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Products{% endblock title %}
+
+{% block main_content %}
+<div class="container my-5 luxury-content products-container">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-sm-3">
+            <div class="list-group luxury-sidebar">
+                <a href="{% url 'products' %}" class="list-group-item list-group-item-action {% if not selected_category %}active{% endif %}">All Products</a>
+                {% for cat in categories %}
+                    <a href="{% url 'products' %}?category={{ cat.code }}" class="list-group-item list-group-item-action {% if selected_category == cat.code %}active{% endif %}">{{ cat.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="col-sm-9">
+            <div class="row">
+                {% for prod in product %}
+                <div class="col-md-4 mb-4">
+                    <a href="{% url 'product-detail' prod.id %}" class="perfume luxury-card">
+                        <div class="perfumer">
+                            <img src="{{ prod.product_image.url }}" alt="{{ prod.title }}">
+                        </div>
+                        <div class="mlkpro">{{ prod.title }}</div>
+                        <div class="luxury-price">
+                            <span class="text-danger fw-bold">₱.{{ prod.discounted_price }}</span>
+                            <small class="text-decoration-line-through text-muted ms-2">{{ prod.selling_price }}</small>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

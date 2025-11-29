@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Orders{% endblock title %}
+
+{% block main_content %}
+<div class="container orders-container my-5">
+    <div class="row">
+        <h3 class="orders-heading">Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+
+        <div class="col-sm-2 orders-sidebar border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid">
+                    <a href="{% url 'orders' %}" class="btn btn-primary">Orders</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-9 offset-sm-1 orders-list">
+            {% for op in order_placed %}
+            <div class="row order-item mb-4 p-2 border rounded">
+                <div class="col-sm-2">
+                    <img src="{{ op.product.product_image.url }}" class="img-fluid order-img">
+                </div>
+                
+                <div class="col-sm-7 order-details">
+                    <p>Product: {{ op.product.title }}</p>
+                    <p>Quantity: {{ op.quantity }}</p>
+                    <p>Price: ₱{{ op.total_cost }}</p>
+                </div>
+
+                <div class="col-sm-3 order-status">
+                    <p><strong>Order Status: {{ op.status }}</strong></p>
+
+                    <div class="progress">
+                        <div class="progress-bar order-progress {% if op.status == 'Pending' %}pending{% endif %}
+                            {% if op.status == 'To Ship' %}to-ship{% endif %}
+                            {% if op.status == 'To Deliver' %}to-deliver{% endif %}
+                            {% if op.status == 'To Receive' %}to-receive{% endif %}
+                            {% if op.status == 'Completed' %}completed{% endif %}
+                            {% if op.status == 'Cancelled' %}cancelled{% endif %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

@@ -1,0 +1,363 @@
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+body {
+    background-color: #f8f6f3;
+    font-family: 'Poppins', sans-serif;
+    color: #2a2a2a;
+    line-height: 1.6;
+}
+
+a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #bfa34a;
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+.navbar {
+    background: #111 !important;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar-brand img {
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #d4af37 !important;
+}
+
+/* ===========================
+   CARDS, PERFUMES & FORM CONTAINERS
+=========================== */
+.perfume,
+.luxury-card,
+.luxury-form-container,
+.luxury-cart .card,
+.luxury-banner,
+.luxury-sidebar {
+    background: rgba(255,255,255,0.75);
+    border-radius: 18px;
+    border: 1px solid rgba(200,200,200,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    padding: 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(12px);
+}
+
+.perfume:hover,
+.luxury-card:hover,
+.luxury-form-container:hover,
+.luxury-cart .card:hover,
+.luxury-sidebar .luxury-btn:hover,
+.luxury-sidebar .list-group-item:hover,
+.luxury-sidebar .list-group-item.active {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    background: #bfa34a;
+    color: #fff;
+}
+
+/* Perfumer Images */
+.perfumer img {
+    width: 80%;
+    height: auto;
+    margin: 0 auto 15px;
+    transition: transform 0.4s ease;
+}
+
+.perfume:hover img,
+.luxury-card:hover .perfumer img,
+.luxury-cart img.img-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+/* Brand-specific Gradients */
+.ysl       { background: linear-gradient(180deg, #fff, #f7f0d6); border-color: #e3d9b4; }
+.armani    { background: linear-gradient(180deg, #fff, #e7e7e7); border-color: #d6d6d6; }
+.aventus   { background: linear-gradient(180deg, #fff, #dcdcdc); border-color: #b4b4b4; }
+.valentino { background: linear-gradient(180deg, #fff, #f4d2d2); border-color: #e3b6b6; }
+.lv        { background: linear-gradient(180deg, #fff, #d5f3f6); border-color: #bfe6ea; }
+
+/* Product Titles */
+.mlkpro {
+    color: #1e1d1d;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 15px auto;
+}
+
+/* ===========================
+   CAROUSEL / BANNERS
+=========================== */
+.luxury-carousel {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.luxury-carousel .carousel-slide {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.luxury-carousel .carousel-control-prev-icon,
+.luxury-carousel .carousel-control-next-icon {
+    filter: invert(100%);
+    background-size: 2rem 2rem;
+}
+
+/* ===========================
+   HEADINGS & TEXT
+=========================== */
+.luxury-heading,
+.luxury-form-heading,
+.orders-heading,
+.reset-heading,
+.password-confirm-heading,
+.profile-heading,
+.welcome-heading,
+.success-heading,
+.reset-password-form h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.luxury-text {
+    font-family: 'Lora', serif;
+    color: #2a2a2a;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Lora', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+/* ===========================
+   FORMS & BUTTONS
+=========================== */
+input, select, textarea, .reset-password-form input, 
+.reset-password-form select, .profile-form input, 
+.profile-form select, .profile-form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(255,255,255,0.95);
+    font-family: 'Lora', serif;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus,
+.reset-password-form input:focus, .reset-password-form select:focus,
+.profile-form input:focus, .profile-form select:focus, .profile-form textarea:focus {
+    border-color: #bfa34a;
+    box-shadow: 0 0 10px rgba(191,163,74,0.4);
+    outline: none;
+}
+
+button, .luxury-btn, .luxury-btn-success, .reset-password-form .btn,
+.btn-submit, .form-actions .btn, .orders-sidebar .btn, 
+.profile-sidebar .btn-primary, .btn-add-cart, .btn-buy-now {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    background: #bfa34a;
+    color: #fff;
+}
+
+button:hover, .luxury-btn:hover, .luxury-btn-success:hover,
+.reset-password-form .btn:hover, .btn-submit:hover, 
+.form-actions .btn-primary:hover, .orders-sidebar .btn:hover,
+.profile-sidebar .btn-primary:hover, .btn-add-cart:hover {
+    background: #d4af37;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Alerts */
+.alert {
+    border-radius: 12px;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* ===========================
+   ORDERS, RESET, PROFILE, PRODUCT PAGES
+=========================== */
+.orders-container, .reset-container, .password-confirm-container,
+.change-password-container, .product-container, .profile-container,
+.wishlist-container {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #fdfaf6, #f8f6f3);
+    font-family: 'Lora', serif;
+    text-align: center;
+}
+
+.orders-list .order-item,
+.reset-message, .reset-password-form, .password-confirm-form,
+.profile-form-section, .product-image, .wishlist-item, .search-result-card {
+    background: rgba(255,255,255,0.85);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orders-list .order-item:hover,
+.reset-message:hover,
+.reset-password-form:hover,
+.password-confirm-form:hover,
+.profile-form:hover,
+.product-image:hover,
+.wishlist-item:hover,
+.search-result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+}
+
+/* Container */
+.wishlist-container {
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #fdfaf6, #f8f6f3);
+    font-family: 'Playfair Display', serif;
+}
+
+/* Wishlist items grid: always 3 columns */
+.wishlist-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* always 3 columns */
+    gap: 30px;
+    justify-items: center; /* center cards in each column */
+    width: 100%;
+}
+
+/* Each card */
+.wishlist-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    min-height: 380px;
+    max-width: 300px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.wishlist-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    background: #bfa34a; /* luxury gold */
+    color: #fff;
+}
+
+/* Image */
+.wishlist-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wishlist-item:hover .wishlist-img {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.wishlist-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 15px 0 10px;
+}
+
+/* Price */
+.wishlist-price {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #bfa34a;
+    margin-bottom: 15px;
+}
+
+.wishlist-price small {
+    color: #aaa;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+/* Link */
+.wishlist-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+/* Hover effect for text inside card */
+.wishlist-item:hover .wishlist-title,
+.wishlist-item:hover .wishlist-price {
+    color: #fff;
+}
+
+/* ===========================
+   PRODUCTS PAGE SIDEBAR (sticky)
+   Only applied to the products page to keep other pages unaffected
+=========================== */
+@media (min-width: 768px) {
+    .products-container .luxury-sidebar {
+        position: sticky;
+        top: 90px; /* Leave room for navbar */
+        max-height: calc(100vh - 110px);
+        overflow-y: auto; /* allow internal scroll if sidebar longer than viewport */
+        margin-bottom: 0; /* override margin to avoid double spacing */
+    }
+}

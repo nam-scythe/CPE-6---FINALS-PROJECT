@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+
+{% block banner_slider %}
+<div id="carouselExampleAutoplaying" class="carousel slide luxury-carousel" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="false">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'app/images/banner/b1.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 3">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100 carousel-slide" alt="Banner 4">
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{% endblock banner_slider %}
+
+{% block main_content %}
+<div class="container luxury-content my-5">
+    <h2 class="luxury-heading">Contact Us</h2>
+
+    <div class="row justify-content-center luxury-card p-4">
+        <div class="col-md-8 text-center luxury-text">
+            <p>We’d love to hear from you! Whether you have questions about our fragrances, need help choosing a scent, or want to follow up on an order, the Scent Avenue team is here to assist.</p>
+            <p>📞 Phone: (+63) 912 345 6789</p>
+            <p>📧 Email: support@scentavenue.ph</p>
+            <p>🕒 Store Hours: Monday – Sunday 10:00 AM – 8:00 PM</p>
+            <p>🌐 Social Media: Facebook: @ScentAvenuePH | Instagram: @scentavenue.official | TikTok: @scentavenueph</p>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

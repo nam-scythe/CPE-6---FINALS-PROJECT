@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Address{% endblock title %}
+
+{% block main_content %}
+<div class="container luxury-content my-5">
+    <div class="row mb-4">
+        <h3 class="luxury-text">Welcome <span class="text-capitalize">{{ request.user }}</span></h3>
+    </div>
+
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-sm-2 luxury-sidebar">
+            <ul class="list-unstyled">
+                <li class="d-grid mb-2">
+                    <a href="{% url 'profile' %}" class="btn luxury-btn">Profile</a>
+                </li>
+                <li class="d-grid mb-2">
+                    <a href="{% url 'address' %}" class="btn luxury-btn active">Address</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Address Cards -->
+        <div class="col-sm-8 offset-sm-1">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-sm-6 mb-4">
+                    <div class="card luxury-card p-4">
+                        <h4 class="luxury-text">Address {{ forloop.counter }}</h4>
+                        <p><strong>Name:</strong> {{ ad.name }}</p>
+                        <p><strong>Locality:</strong> {{ ad.locality }}</p>
+                        <p><strong>Mobile:</strong> {{ ad.mobile }}</p>
+                        <p><strong>City:</strong> {{ ad.city }}</p>
+                        <p><strong>State:</strong> {{ ad.state }}</p>
+                        <p><strong>Pincode:</strong> {{ ad.zipcode }}</p>
+
+                        <div class="text-center mt-3">
+                            <a href="{% url 'updateAddress' pk=ad.id %}" class="btn luxury-btn luxury-btn-success">Update</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}

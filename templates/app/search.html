@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Search Result{% endblock title %}
+
+{% block main_content %}
+<div class="container search-results-container my-5">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row g-4">
+                {% for prod in product %}
+                <div class="col-sm-4 text-center search-result-item">
+                    <a href="{% url 'product-detail' prod.id %}" class="search-result-link">
+                        <div class="search-result-card">
+                            <img src="{{ prod.product_image.url }}" alt="{{ prod.title }}" class="search-result-img">
+                            <div class="search-result-title fw-bold">{{ prod.title }}</div>
+                            <div class="search-result-price fw-bold text-danger">
+                                ₱{{ prod.discounted_price }}/-
+                                <small class="original-price fw-light text-decoration-line-through">
+                                    ₱{{ prod.selling_price }}
+                                </small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main_content %}
